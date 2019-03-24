@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.poldichen.knowaboutme.dao.IBasicDao">
+
+    <select id="getById" resultType="com.poldichen.knowaboutme.entity.Basic">
+        SELECT * FROM basic where id = #{id}
+    </select>
+
+    <update id="updateById">
+        update basic set
+        full_name = #{basic.fullName},
+        first_name = #{basic.firstName},
+        last_name = #{basic.lastName},
+        english_name = #{basic.englishName},
+        birth_date = #{basic.birthDate},
+        phone = #{basic.phone},
+        email = #{basic.email},
+        address = #{basic.address}
+        where id = #{id}
+    </update>
+
+</mapper>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.poldichen.knowaboutme.dao.IProjectDao">
+
+    <select id="getById" resultType="com.poldichen.knowaboutme.entity.Project">
+        SELECT * FROM project where id = #{id}
+    </select>
+
+    <select id="getAll" resultType="com.poldichen.knowaboutme.entity.Project">
+        select * from project
+    </select>
+
+    <update id="updateById">
+        update project set
+        name = #{project.name},
+        role = #{project.role},
+        duration = #{project.duration},
+        skills = #{project.skills},
+        description = #{project.description}
+        where id = #{id}
+    </update>
+
+    <insert id="createOne" useGeneratedKeys="true" keyProperty="id">
+        insert into project (name, role, duration, skills, description)
+        values (#{project.name}, #{project.role}, #{project.duration}, #{project.skills}, #{project.description})
+    </insert>
+
+</mapper>
