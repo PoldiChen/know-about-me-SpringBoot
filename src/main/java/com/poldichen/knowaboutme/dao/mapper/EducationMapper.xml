@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.poldichen.knowaboutme.dao.IEducationDao">
+
+    <select id="getById" resultType="com.poldichen.knowaboutme.entity.Education">
+        SELECT * FROM education where id = #{id}
+    </select>
+
+    <select id="getAll" resultType="com.poldichen.knowaboutme.entity.Education">
+        select * from education
+    </select>
+
+    <update id="updateById">
+        update education set
+        level = #{education.level},
+        school = #{education.school}
+        start_date = #{education.startDate},
+        end_date = #{education.endDate}
+        where id = #{id}
+    </update>
+
+    <insert id="createOne" useGeneratedKeys="true" keyProperty="id">
+        insert into education (level, school, start_date, end_date)
+        values (#{education.level}, #{education.school}, #{education.startDate}, #{education.endDate})
+    </insert>
+
+</mapper>

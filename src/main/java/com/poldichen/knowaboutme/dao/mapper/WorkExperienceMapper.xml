@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.poldichen.knowaboutme.dao.IWorkExperienceDao">
+
+    <select id="getById" resultType="com.poldichen.knowaboutme.entity.WorkExperience">
+        SELECT * FROM work_experience where id = #{id}
+    </select>
+
+    <select id="getAll" resultType="com.poldichen.knowaboutme.entity.WorkExperience">
+        select * from work_experience
+    </select>
+
+    <update id="updateById">
+        update work_experience set
+        company = #{workExperience.company},
+        start_date = #{workExperience.startDate},
+        end_date = #{workExperience.endDate},
+        position = #{workExperience.position}
+        where id = #{id}
+    </update>
+
+    <insert id="createOne" useGeneratedKeys="true" keyProperty="id">
+        insert into work_experience (company, start_date, end_date, position)
+        values (#{workExperience.company}, #{workExperience.startDate}, #{workExperience.endDate}, #{workExperience.position})
+    </insert>
+
+</mapper>
