@@ -6,6 +6,10 @@
         SELECT * FROM basic where id = #{id}
     </select>
 
+    <select id="getAll" resultType="com.poldichen.knowaboutme.entity.Basic">
+        select * from basic
+    </select>
+
     <update id="updateById">
         update basic set
         full_name = #{basic.fullName},

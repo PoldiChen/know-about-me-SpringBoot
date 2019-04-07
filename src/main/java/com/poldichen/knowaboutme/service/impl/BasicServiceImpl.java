@@ -26,6 +26,11 @@ public class BasicServiceImpl implements IBasicService {
     }
 
     @Override
+    public List<Basic> getAll() {
+        return basicDao.getAll();
+    }
+
+    @Override
     public boolean updateById(int id, Basic basic) {
         return basicDao.updateById(id, basic);
     }

@@ -7,6 +7,8 @@ import com.poldichen.knowaboutme.service.inter.IBasicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * @author poldi.chen
  * @className BasicController
@@ -25,6 +27,14 @@ public class BasicController {
         Basic basic = basicService.getById(id);
         System.out.println(basic.toString());
         resp.setData(basic);
+        return resp;
+    }
+
+    @RequestMapping(value="/basic")
+    public Resp getAll() {
+        Resp resp = new Resp();
+        List<Basic> basics = basicService.getAll();
+        resp.setData(basics);
         return resp;
     }
 

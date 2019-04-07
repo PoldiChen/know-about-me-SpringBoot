@@ -7,5 +7,7 @@ public interface IBasicService {
 
     Basic getById(int id);
 
+    List<Basic> getAll();
+
     boolean updateById(int id, Basic basic);
 }
